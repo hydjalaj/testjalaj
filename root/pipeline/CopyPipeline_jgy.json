@@ -1,0 +1,60 @@
+{
+	"name": "CopyPipeline_jgy",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_jgy",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "adftutorial/emp.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[emp]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "FirstName",
+							"Prop_1": "LastName"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_jgy",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_jgy",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

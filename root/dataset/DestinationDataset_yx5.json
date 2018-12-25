@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_yx5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "emp.txt",
+			"folderPath": "adftutorial/output"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,25 @@
+{
+	"name": "InputDataset",
+	"properties": {
+		"description": "input ",
+		"linkedServiceName": {
+			"referenceName": "AzureStorageLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"fileName": "emp.txt",
+			"folderPath": "adftutorial"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
